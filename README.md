@@ -34,7 +34,11 @@ OpenLDAP client libraries and MIT Kerberos libraries.
 
 # Authors
 * Mårten Cassel
-«
+
+# TODO
+* Add tests
+* Rake and gemspec
+
 # License
 TODO
   
