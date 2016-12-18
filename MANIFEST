@@ -1,0 +1,13 @@
+CHANGES
+radcli.gemspec
+MANIFEST
+Rakefile
+README
+ext/adutil.h
+ext/adconn.h
+ext/adenroll.h
+ext/radconn.c
+ext/radenroll.c
+ext/radcli.c
+ext/radcli.h
+test/test_adcli.rb
