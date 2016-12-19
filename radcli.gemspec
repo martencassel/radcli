@@ -10,11 +10,8 @@ Gem::Specification.new do |spec|
     spec.summary    = 'A Ruby interface for the adcli library'
     spec.test_files = Dir['test/test*']
     spec.extensions = ['ext/radcli/extconf.rb']
-    spec.files      = `git ls-files`.split("\n").reject { |f| f.include?('git') }
-    
-    spec.extra_rdoc_files  = ['README.md', 'CHANGES', 'MANIFEST', 'LICENSE'] + Dir['ext/radcli/*.c']
-    
-    spec.add_dependency('rake-compiler') 
-
+    spec.files      = `git ls-files`.split("\n").reject { |f| f.include?('git') }
+    spec.extra_rdoc_files  = ['README.md', 'CHANGES', 'MANIFEST'] + Dir['ext/radcli/*.c']
+    spec.add_dependency('rake-compiler', '~> 0')
 end
 
