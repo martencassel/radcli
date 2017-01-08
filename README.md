@@ -1,5 +1,5 @@
 # Description
-The radcli library provides a Ruby interface for performin actions on a Active Directory domain using the realmd/adcli tool.
+The radcli library provides a Ruby interface for performing actions on a Active Directory domain using the realmd/adcli tool.
 (adcli: https://www.freedesktop.org/software/realmd/adcli/devel-building.html)
 
 # Installation
@@ -47,6 +47,4 @@ OpenLDAP client libraries and MIT Kerberos libraries.
 * Implement precreate, update and delete for smart-proxy realm provider.
 * Add tests
 
-# License
-TODO
   
