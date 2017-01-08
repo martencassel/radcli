@@ -9,7 +9,3 @@ void Init_radcli() {
     Init_AdConn();
     Init_AdEnroll();
 }
-
-/*
-    x = Adcli.AdConn.new
-*/
