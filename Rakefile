@@ -1,4 +1,5 @@
 task :clone_adcli do
+    sh "sudo yum -y groupinstall 'Development Tools' && sudo yum -y install automake autoconf xmlto xsltproc krb5-devel openldap-devel cyrus-sasl-devel"
     sh "rm -rf ./adcli && git clone http://cgit.freedesktop.org/realmd/adcli/"
 end
 
