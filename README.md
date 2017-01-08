@@ -2,6 +2,14 @@
 The radcli library provides a Ruby interface for performin actions on a Active Directory domain using the realmd/adcli tool.
 (adcli: https://www.freedesktop.org/software/realmd/adcli/devel-building.html)
 
+# Installation
+```
+git clone https://github.com/martencassel/radcli
+cd radcli
+rake build
+gem install pkg/radcli-0.0.1.gem
+```
+
 # Requirements
 OpenLDAP client libraries and MIT Kerberos libraries.
 

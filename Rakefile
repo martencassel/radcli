@@ -1,13 +1,39 @@
-task :clone_adcli do
-    sh "sudo yum -y groupinstall 'Development Tools' && sudo yum -y install automake autoconf xmlto xsltproc krb5-devel openldap-devel cyrus-sasl-devel"
-    sh "rm -rf ./adcli && git clone http://cgit.freedesktop.org/realmd/adcli/"
+require "bundler/gem_tasks"
+require "rubygems/package_task"
+require "rake/extensiontask"
+require "rspec/core/rake_task"
+require "rake/clean"
+
+CLEAN.include(
+    "ext/radcli/*.o",
+    "ext/radcli/*.bundle"
+)
+
+CLOBBER.include(
+    "ext/radcli/Makefile",
+    "pkg"
+)
+
+BUILD_DIR = 'build'
+
+def gem_spec
+    @gem_spec ||= Gem::Specification.load('radcli.gemspec')
 end
 
-task :build_adcli => 'clone_adcli' do
-    sh "cd ./adcli && ./autogen.sh --prefix=/usr --sysconfdir=/etc && make && mv ./library/.libs/libadcli.a ../ext/lib/"
-    sh "git add -f ./ext/lib/libadcli.a"
-    sh "rm -rf ./adcli"
+Gem::PackageTask.new(gem_spec) do |pkg|
+    pkg.need_zip = true
+    pkg.need_tar = true
 end
 
-task :default => :build_adcli
+Rake::ExtensionTask.new("radcli", gem_spec) do |ext|
+     ext.ext_dir = './ext/radcli' 
+     ext.lib_dir = './ext/lib'
+     ext.config_script = "extconf.rb"
+end
+
+RSpec::Core::RakeTask.new(:spec)
+
+task :build   => [:clean, :compile]
+
+task :default => [:build, :spec]
 
