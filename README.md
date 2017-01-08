@@ -44,8 +44,8 @@ OpenLDAP client libraries and MIT Kerberos libraries.
 * Mårten Cassel
 
 # TODO
+* Implement precreate, update and delete for smart-proxy realm provider.
 * Add tests
-* Rake and gemspec
 
 # License
 TODO
