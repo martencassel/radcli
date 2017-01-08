@@ -5,6 +5,7 @@ end
 
 task :build_adcli => 'clone_adcli' do
     sh "cd ./adcli && ./autogen.sh --prefix=/usr --sysconfdir=/etc && make && mv ./library/.libs/libadcli.a ../ext/lib/"
+    sh "git add -f ./ext/lib/libadcli.a"
     sh "rm -rf ./adcli"
 end
 
