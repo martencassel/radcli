@@ -24,12 +24,12 @@ gem install pkg/radcli-0.0.1.gem
   require 'radcli'
 
   # Connnect to the domain as a admin user with a password.
-  adconn = Adcli::AdConn.new("ad.example.com")
+  adconn = Adcli::AdConn.new("example.com")
 
-  adconn.set_login_user("admin")
-  adconn.set_user_password("p@ssw0rd")
-  adconn.set_domain_realm("AD.EXAMPLE.COM")
-  adconn.set_domain_controller("dc.ad.example.com")
+  adconn.set_login_user("Administrator")
+  adconn.set_user_password("password")
+  adconn.set_domain_realm("EXAMPLE.COM")
+  adconn.set_domain_controller("dc.example.com")
 
   res = adconn.connect
 
