@@ -4,13 +4,14 @@ The radcli library provides a Ruby interface for performing actions on a Active 
 
 # Installation
 
-## Fedora
+### Prerequisites (Fedora)
 ```
 sudo yum ruby gem ruby-devel
 gem install rake bundler rakecompiler rspec
 sudo yum install automake autoconf xmlto xsltproc krb5-devel openldap-devel cyrus-sasl-devel
 ```
 
+### Building
 ```
 git clone https://github.com/martencassel/radcli
 cd radcli
