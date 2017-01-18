@@ -19,9 +19,6 @@ rake build
 gem install pkg/radcli-0.0.1.gem
 ```
 
-# Requirements
-OpenLDAP client libraries and MIT Kerberos libraries.
-
 # Synposis
 ```ruby
   require 'radcli'
