@@ -76,7 +76,10 @@ enroll.delete()
 ```
 
 # Notes
-...
+For a testing environment you need the following:
+
+* A windows domain controller and a connected linux server.
+* The linux server must be able to resolve domain names.
 
 # Authors
 * Mårten Cassel
