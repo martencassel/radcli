@@ -33,7 +33,7 @@ adconn.set_domain_controller("dc.example.com")
 res = adconn.connect
 
 enroll = Adcli::AdEnroll.new(adconn)
-enroll.set_computer_name("server.example.com")
+enroll.set_computer_name("server")
 enroll.set_computer_password("password")
 
 enroll.join()
@@ -51,10 +51,10 @@ adconn.set_domain_controller("dc.example.com")
 res = adconn.connect
 
 enroll = Adcli::AdEnroll.new(adconn)
-enroll.set_computer_name("server.example.com")
-enroll.set_computer_password("password")
+enroll.set_computer_name("server")
+enroll.set_computer_password("newpass")
 
-enroll.update()
+enroll.password()
 
 ```
 
@@ -70,7 +70,7 @@ adconn.set_domain_controller("dc.example.com")
 res = adconn.connect
 
 enroll = Adcli::AdEnroll.new(adconn)
-enroll.set_computer_name("server.example.com")
+enroll.set_computer_name("server")
 
 enroll.delete()
 ```
