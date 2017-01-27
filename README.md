@@ -98,7 +98,7 @@ For a testing environment you need the following:
 * Mårten Cassel
 
 # TODO
-* Decide what to test, implement tests.
+* Decide what to test, implement tests. Study rkerberos tests.
 * Return error codes from adcli library. Remove printing errors.
 * Let the radcli user check error codes.
 * Let the user print errors using the function (adutil.h: adcli_get_last_error)
