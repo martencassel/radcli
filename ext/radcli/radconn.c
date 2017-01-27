@@ -31,6 +31,20 @@ static VALUE radconn_initialize (VALUE self, VALUE domain) {
     return self;
 }
 
+/* 
+ * call-seq:
+    Adcli::Adconn.set_login_ccache_name("")
+
+   Set the login kerberos cache name
+*/
+static VALUE radconn_set_login_ccache_name (VALUE self, VALUE ccname) {
+    RUBY_ADCONN* ptr;
+    const char *c_ccname = StringValuePtr(ccname);
+    Data_Get_Struct (self, RUBY_ADCONN, ptr);
+    adcli_conn_set_login_ccache_name (ptr->conn, c_ccname);
+    return self;
+}
+
 /*
  * call-seq:
  *  Adcli::Adconn.set_login_user("user")
@@ -172,6 +186,7 @@ void Init_AdConn()
     rb_define_method (c_adconn, "initialize", radconn_initialize, 1);
 
     // AdConn Methods
+    rb_define_method (c_adconn, "set_login_ccache_name", radconn_set_login_ccache_name, 1);
     rb_define_method (c_adconn, "get_login_user", radconn_get_login_user, 0);
     rb_define_method (c_adconn, "set_login_user", radconn_set_login_user, 1);
     rb_define_method (c_adconn, "get_user_password", radconn_get_user_password, 0);

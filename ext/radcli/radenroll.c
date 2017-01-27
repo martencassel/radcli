@@ -69,6 +69,25 @@ static VALUE radenroll_set_computer_name (VALUE self, VALUE value) {
 
 /*
  * call-seq:
+ * 
+ *  adenroll.set_domain_ou('OU=Testing,DC=domain,DC=example,DC=com')
+ * 
+ * Set the domain organizational unit.
+ * 
+ */
+static VALUE radenroll_set_domain_ou (VALUE self, VALUE value) {
+    RUBY_ADENROLL *ptr_enroll;
+    adcli_enroll *enroll;
+    adcli_result res;
+    const char *c_value = StringValuePtr(value);
+    Data_Get_Struct (self, RUBY_ADENROLL, ptr_enroll);
+    adcli_enroll_set_domain_out(enroll, c_value);
+    enroll = ptr_enroll->enroll;
+    return self;
+}
+
+/*
+ * call-seq:
  *  
  *  adenroll.get_computer_password
  * 
@@ -167,6 +186,8 @@ void Init_AdEnroll()
 
     rb_define_method (c_adenroll, "get_computer_name", radenroll_get_computer_name, 0);
     rb_define_method (c_adenroll, "set_computer_name", radenroll_set_computer_name, 1);
+
+    rb_define_method (c_adenroll, "set_domain_ou", radenroll_set_domain_ou, 1);
 
     rb_define_method (c_adenroll, "get_computer_password", radenroll_get_computer_password, 0);
     rb_define_method (c_adenroll, "set_computer_password", radenroll_set_computer_password, 1);
