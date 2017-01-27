@@ -38,6 +38,16 @@ res = adconn.connect
 ### or connect using local credentials cache (Initialized using kinit from keytab).
 ```ruby
 require 'radcli'
+require "rkerberos"
+
+# Kinit using principal name and keytab.
+principal = "Administrator"
+keytab="/tmp/realm_ad.keytab"
+krb5 = Kerberos::Krb5.new
+ccache = Kerberos::Krb5::CredentialsCache.new
+krb5.get_init_creds_keytab principal, keytab, nil, ccache
+
+# Connect
 
 adconn = Adcli::AdConn.new("example.com")
 adconn.set_domain_realm("EXAMPLE.COM")
