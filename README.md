@@ -21,9 +21,7 @@ gem install pkg/radcli-0.0.1.gem
 
 # Synposis
 
-## Connect to Active Directory
-
-### Using username or password
+### Connect using username/password
 ```ruby
 require 'radcli'
 
