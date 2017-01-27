@@ -98,7 +98,9 @@ For a testing environment you need the following:
 * Mårten Cassel
 
 # TODO
-* Implement precreate, update and delete for smart-proxy realm provider.
-* Add tests
-
+* Decide what to test, implement tests.
+* Return error codes from adcli library. Remove printing errors.
+* Let the radcli user check error codes.
+* Let the user print errors using the function (adutil.h: adcli_get_last_error)
+* adcli_result: ADCLI_SUCCESS, ADCLI_ERR_UNEXPECTED, ADCLI_ERR_FAIL, ADCLI_ERR_DIRECTORY, ADCLI_ERR_CONFIG, ADCLI_ERR_CREDENTIALS.
   
