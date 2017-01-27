@@ -21,16 +21,33 @@ gem install pkg/radcli-0.0.1.gem
 
 # Synposis
 
-### Join
+## Connect to Active Directory
+
+### Using username or password
 ```ruby
 require 'radcli'
 
 adconn = Adcli::AdConn.new("example.com")
-adconn.set_login_user("Administrator")
-adconn.set_user_password("password")
 adconn.set_domain_realm("EXAMPLE.COM")
 adconn.set_domain_controller("dc.example.com")
-res = adconn.connect
+
+adconn.set_login_user("Administrator")
+adconn.set_user_password("password")
+```
+
+### Using the credentials cache 
+```ruby
+require 'radcli'
+
+adconn = Adcli::AdConn.new("example.com")
+adconn.set_domain_realm("EXAMPLE.COM")
+adconn.set_domain_controller("dc.example.com")
+
+adconn.set_login_ccache_name("")
+```
+
+### Join
+```ruby
 
 enroll = Adcli::AdEnroll.new(adconn)
 enroll.set_computer_name("server")
@@ -41,14 +58,6 @@ enroll.join()
 
 ### Reset Password
 ```ruby
-require 'radcli'
-
-adconn = Adcli::AdConn.new("example.com")
-adconn.set_login_user("Administrator")
-adconn.set_user_password("password")
-adconn.set_domain_realm("EXAMPLE.COM")
-adconn.set_domain_controller("dc.example.com")
-res = adconn.connect
 
 enroll = Adcli::AdEnroll.new(adconn)
 enroll.set_computer_name("server")
@@ -60,14 +69,6 @@ enroll.password()
 
 ### Delete
 ```ruby
-require 'radcli'
-
-adconn = Adcli::AdConn.new("example.com")
-adconn.set_login_user("Administrator")
-adconn.set_user_password("password")
-adconn.set_domain_realm("EXAMPLE.COM")
-adconn.set_domain_controller("dc.example.com")
-res = adconn.connect
 
 enroll = Adcli::AdEnroll.new(adconn)
 enroll.set_computer_name("server")
