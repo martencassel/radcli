@@ -31,6 +31,8 @@ adconn.set_domain_controller("dc.example.com")
 
 adconn.set_login_user("Administrator")
 adconn.set_user_password("password")
+
+res = adconn.connect
 ```
 
 ### Connect using local credentials cache (Initialized using kinit from keytab).
@@ -42,6 +44,8 @@ adconn.set_domain_realm("EXAMPLE.COM")
 adconn.set_domain_controller("dc.example.com")
 
 adconn.set_login_ccache_name("")
+
+res = adconn.connect
 ```
 
 ### Join
