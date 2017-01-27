@@ -35,7 +35,7 @@ adconn.set_user_password("password")
 res = adconn.connect
 ```
 
-### or connect using local credentials cache (Initialized using kinit from keytab).
+### or connect using local credentials cache
 ```ruby
 require 'radcli'
 require "rkerberos"
