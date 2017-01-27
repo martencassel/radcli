@@ -33,7 +33,7 @@ adconn.set_login_user("Administrator")
 adconn.set_user_password("password")
 ```
 
-### Using the credentials cache 
+### Connect using local credentials cache (Initialized using kinit from keytab).
 ```ruby
 require 'radcli'
 
