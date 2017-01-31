@@ -99,7 +99,6 @@ For a testing environment you need the following:
 * Mårten Cassel
 
 # TODO
-* Sleep
 * Decide what to test, implement tests. Study rkerberos tests.
 * Return error codes from adcli library. Remove printing errors.
 * Let the radcli user check error codes.
