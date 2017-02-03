@@ -19,7 +19,7 @@ class TC_Adconn< Test::Unit::TestCase
 #    test ""
 
     def setup
-        @domain_name = "ad.example.com"
+        @domain_name = "example.com"
         @adconn = Adcli::AdConn.new(@domain_name)
     end
 
