@@ -42,7 +42,7 @@ require "rkerberos"
 
 # Kinit using principal name and keytab.
 principal = "Administrator"
-# !!!You should always store keytab files on a local disk, and make them readable only by the root user. Also, you should never send a keytab file over an unsecured network.
+keytab file over an unsecured network.
 keytab="/tmp/realm_ad.keytab"
 krb5 = Kerberos::Krb5.new
 ccache = Kerberos::Krb5::CredentialsCache.new
