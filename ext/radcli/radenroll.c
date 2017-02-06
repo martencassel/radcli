@@ -59,7 +59,6 @@ static VALUE radenroll_get_computer_name (VALUE self) {
 static VALUE radenroll_set_computer_name (VALUE self, VALUE value) {
     RUBY_ADENROLL *ptr_enroll;
     adcli_enroll *enroll;
-    adcli_result res;
     const char *c_value = StringValuePtr (value);
     Data_Get_Struct (self, RUBY_ADENROLL, ptr_enroll);
     enroll = ptr_enroll->enroll;
@@ -78,11 +77,13 @@ static VALUE radenroll_set_computer_name (VALUE self, VALUE value) {
 static VALUE radenroll_set_domain_ou (VALUE self, VALUE value) {
     RUBY_ADENROLL *ptr_enroll;
     adcli_enroll *enroll;
-    adcli_result res;
-    const char *c_value = StringValuePtr(value);
+
     Data_Get_Struct (self, RUBY_ADENROLL, ptr_enroll);
-    adcli_enroll_set_domain_out(enroll, c_value);
+
+    const char *c_value = StringValuePtr(value);
     enroll = ptr_enroll->enroll;
+    adcli_enroll_set_domain_ou(enroll, c_value);
+    
     return self;
 }
 
@@ -111,11 +112,14 @@ static VALUE radenroll_get_computer_password (VALUE self) {
 static VALUE radenroll_set_computer_password (VALUE self, VALUE value) {
     RUBY_ADENROLL *ptr_enroll;
     adcli_enroll *enroll;
-    adcli_result res;
-    const char *c_value = StringValuePtr (value);
+
     Data_Get_Struct (self, RUBY_ADENROLL, ptr_enroll);
+
     enroll = ptr_enroll->enroll;
+    const char *c_value = StringValuePtr (value);
+
     adcli_enroll_set_computer_password (enroll, c_value);
+
     return self;
 }
 
