@@ -43,7 +43,7 @@ require "rkerberos"
 # Kinit using principal name and keytab.
 principal = "Administrator"
 keytab file over an unsecured network.
-keytab="/tmp/realm_ad.keytab"
+keytab="/etc/foreman-proxy/ad.keytab"
 krb5 = Kerberos::Krb5.new
 ccache = Kerberos::Krb5::CredentialsCache.new
 krb5.get_init_creds_keytab principal, keytab, nil, ccache
