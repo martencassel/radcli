@@ -35,16 +35,31 @@ class TC_AdEnroll < Test::Unit::TestCase
     assert_nothing_raised{ Adcli::AdEnroll.new(@conn) }
   end
 
+  test "argument to host fqdn setter must be a string" do
+    assert_raise(TypeError){ @enroll.set_host_fqdn(1) }
+    assert_raise(TypeError){ @enroll.set_host_fqdn(true) }
+  end
+
   test "host fqdn setter/getter sets/returns value" do
     @enroll.set_host_fqdn(@host_fqdn)
     host_fqdn = @enroll.get_host_fqdn()
     assert_equal(@host_fqdn, host_fqdn)
+  end
+  
+  test "argument to computer name setter must be a string" do
+    assert_raise(TypeError) { @enroll.set_computer_name(1) }
+    assert_raise(TypeError) { @enroll.set_computer_name(true) }
   end
 
   test "computer name setter/getter sets/returns value" do
     @enroll.set_computer_name(@computer_name)
     computer_name = @enroll.get_computer_name()
     assert_equal(@computer_name, computer_name)
+  end
+
+  test "argument do passwod setter must be a string" do
+    assert_raise(TypeError) { @enroll.set_computer_password(1) }
+    assert_raise(TypeError) { @enroll.set_computer_password(true) }
   end
 
   test "computer password setter/getter sets/returns value" do
