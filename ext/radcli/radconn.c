@@ -247,13 +247,14 @@ static VALUE radconn_set_domain_controller (VALUE self, VALUE domain_controller)
  */
 static VALUE radconn_connect (VALUE self) {
     RUBY_ADCONN* ptr;
-    adcli_result res;
+    adcli_result result;
 
     Data_Get_Struct (self ,RUBY_ADCONN, ptr);
 
-    res = adcli_conn_connect (ptr->conn);
-    if (res != ADCLI_SUCCESS) {
-    	rb_raise(c_adconn_exception, "adcli_conn_connect: %s", adcli_get_last_error());
+    result = adcli_conn_connect (ptr->conn);
+
+    if (result != ADCLI_SUCCESS) {
+        rb_raise(rb_eRuntimeError, "%s", adcli_get_last_error());
     }
 
     return self;

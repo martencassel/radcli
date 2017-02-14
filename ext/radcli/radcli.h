@@ -16,6 +16,7 @@ extern VALUE m_adcli;
 extern VALUE c_adconn;
 extern VALUE c_adenroll;
 extern VALUE c_adconn_exception;
+extern VALUE c_adenroll_exception;
 
 // Adcli::AdConn
 typedef struct {

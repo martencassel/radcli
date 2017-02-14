@@ -1,13 +1,15 @@
-require "bundler/gem_tasks"
-require "rubygems/package_task"
-require "rake/extensiontask"
-require "rspec/core/rake_task"
-require "rake/clean"
-require "rake/testtask"
+require 'rake'
+require 'rake/testtask'
+require 'rake/extensiontask'
+require 'rake/clean'
+require 'rbconfig'
+require 'rubygems/package'
+require 'bundler/gem_tasks'
 
 CLEAN.include(
     "ext/radcli/*.o",
-    "ext/radcli/*.bundle"
+    "ext/radcli/*.bundle",
+    "**/tmp"
 )
 
 CLOBBER.include(
@@ -32,12 +34,27 @@ Rake::ExtensionTask.new("radcli", gem_spec) do |ext|
      ext.config_script = "extconf.rb"
 end
 
-RSpec::Core::RakeTask.new(:spec)
-
 namespace 'test' do
+
   Rake::TestTask.new('all') do |t|
-    task:all => [:clean, :compile]
-    t.libs << 'ext/radcli'
+    task :all => [:clean, :compile]
+    t.libs << 'ext/radcli' 
+    t.warning = true
+    t.verbose = true
+  end
+
+  Rake::TestTask.new('adconn') do |t|
+    task :context => [:clean, :compile]
+    t.libs << 'ext' 
+    t.test_files = FileList['test/test_radconn.rb']
+    t.warning = true
+    t.verbose = true
+  end
+
+  Rake::TestTask.new('adenroll') do |t|
+    task :context => [:clean, :compile]
+    t.libs << 'ext'
+    t.test_files = FileList['test/test_radenroll.rb']
     t.warning = true
     t.verbose = true
   end
@@ -45,7 +62,4 @@ end
 
 task :build   => [:clean, :compile]
 
-task :default => [:build, :spec]
-
-task :test => ['test:all']
-
+task :default => ['test:all']

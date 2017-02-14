@@ -98,6 +98,7 @@ static VALUE radenroll_set_computer_name (VALUE self, VALUE value) {
     RUBY_ADENROLL *ptr_enroll;
     adcli_enroll *enroll;
 
+
     Check_Type(value, T_STRING);
 
     const char *c_value = StringValuePtr (value);
@@ -186,14 +187,14 @@ static VALUE radenroll_set_computer_password (VALUE self, VALUE value) {
  */                 
 static VALUE radenroll_join (VALUE self) {
     RUBY_ADENROLL *ptr_enroll;
-    adcli_result res;
+    adcli_result result;
 
     Data_Get_Struct (self, RUBY_ADENROLL, ptr_enroll);
 
-    res = adcli_enroll_join (ptr_enroll->enroll, ADCLI_ENROLL_NO_KEYTAB);
+    result = adcli_enroll_join (ptr_enroll->enroll, ADCLI_ENROLL_NO_KEYTAB);
 
-    if (res != ADCLI_SUCCESS) {
-    	rb_raise(c_adconn_exception, "adcli_enroll_join: %s", adcli_get_last_error());
+    if(result != ADCLI_SUCCESS) {
+        rb_raise(rb_eRuntimeError, "%s", adcli_get_last_error());
     }
 
     return self;
@@ -209,14 +210,14 @@ static VALUE radenroll_join (VALUE self) {
  */
 static VALUE radenroll_password (VALUE self) {
     RUBY_ADENROLL *ptr_enroll;
-    adcli_result res;
+    adcli_result result;
 
     Data_Get_Struct (self, RUBY_ADENROLL, ptr_enroll);
 
-    res = adcli_enroll_password (ptr_enroll->enroll, ADCLI_ENROLL_PASSWORD_VALID);
+    result = adcli_enroll_password (ptr_enroll->enroll, ADCLI_ENROLL_PASSWORD_VALID);
 
-    if (res != ADCLI_SUCCESS) {
-    	rb_raise(c_adconn_exception, "adcli_enroll_password: %s", adcli_get_last_error());
+    if (result != ADCLI_SUCCESS) {
+    	rb_raise(rb_eRuntimeError, "%s", adcli_get_last_error());
     }
 
     return self;
@@ -233,14 +234,14 @@ static VALUE radenroll_password (VALUE self) {
  */   
 static VALUE radenroll_delete (VALUE self) {
     RUBY_ADENROLL *ptr_enroll;
-    adcli_result res;
+    adcli_result result;;
 
     Data_Get_Struct (self, RUBY_ADENROLL, ptr_enroll);
 
-    res = adcli_enroll_delete (ptr_enroll->enroll, 0);
+    result = adcli_enroll_delete (ptr_enroll->enroll, 0);
 
-    if (res != ADCLI_SUCCESS) {
-        rb_raise(c_adconn_exception, "adcli_enroll_delete: %s", adcli_get_last_error());
+    if (result != ADCLI_SUCCESS) {
+        rb_raise(rb_eRuntimeError, "%s", adcli_get_last_error());
     }
 
     return self;
