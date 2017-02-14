@@ -1,9 +1,7 @@
 ########################################################################
 # test_radconn.rb
 #
-# Test suite for the Adcli::Adconn class. This suite requires
-# that you have a Active Directory domain controller with the domain name "example.com"
-# connected to this machine.
+# Test suite for the Adcli::Adconn class. 
 #
 require 'rubygems'
 gem 'test-unit'
