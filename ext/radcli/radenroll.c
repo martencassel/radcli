@@ -42,6 +42,31 @@ static VALUE radenroll_initialize (VALUE self, VALUE ad_conn) {
     return self;
 }
 
+static VALUE radenroll_get_host_fqdn (VALUE self) {
+   RUBY_ADENROLL *ptr_enroll;
+   const char *c_host_fqdn = NULL;
+
+   Data_Get_Struct (self, RUBY_ADENROLL, ptr_enroll);
+
+   c_host_fqdn = adcli_enroll_get_host_fqdn(ptr_enroll->enroll);
+
+   return rb_str_new_cstr (c_host_fqdn); 
+}
+
+static VALUE radenroll_set_host_fqdn (VALUE self, VALUE value) {
+   RUBY_ADENROLL *ptr_enroll;
+   adcli_enroll *enroll;
+   Check_Type(value, T_STRING);
+   const char *c_fqdn = StringValuePtr (value); 
+   Data_Get_Struct (self, RUBY_ADENROLL, ptr_enroll);
+
+   enroll = ptr_enroll->enroll;
+   adcli_enroll_set_host_fqdn (enroll, c_fqdn);
+
+   return self;
+}
+
+
 /*
  * call-seq:
  *  
@@ -230,6 +255,9 @@ void Init_AdEnroll()
 
     // AdEnroll methods
     rb_define_method (c_adenroll, "initialize", radenroll_initialize, 1);
+
+    rb_define_method (c_adenroll, "get_host_fqdn", radenroll_get_host_fqdn, 0);
+    rb_define_method (c_adenroll, "set_host_fqdn", radenroll_set_host_fqdn, 1);
 
     rb_define_method (c_adenroll, "get_computer_name", radenroll_get_computer_name, 0);
     rb_define_method (c_adenroll, "set_computer_name", radenroll_set_computer_name, 1);
