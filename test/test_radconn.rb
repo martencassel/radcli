@@ -20,6 +20,25 @@ class TC_Adconn < Test::Unit::TestCase
 
     @conn = Adcli::AdConn.new(@domain)
   end
+
+  test "an error is raised on connect if an invalid domain controller is used" do
+    @conn.set_login_user("Administrator")
+    @conn.set_user_password("password")
+    @conn.set_domain_realm("EXAMPLE.COM")
+    @conn.set_domain_controller("foo.example.com")
+
+    exception = assert_raises(RuntimeError) { @conn.connect }
+    assert_equal("Couldn't resolve host name: foo.example.com: Name or service not known", exception.message)
+  end
+  
+  test "an error is raised on connect if an invalid realm is used" do
+    @conn.set_login_user("Administrator")
+    @conn.set_user_password("password")
+    @conn.set_domain_realm("EXAMPLE.INCORRECT")
+    @conn.set_domain_controller("dc.example.com")
+
+    exception = assert_raises(RuntimeError) { @conn.connect }
+  end
   
   test "argument to constructor must be a string" do
     assert_raise(TypeError){ Adcli::AdConn.new(1) }
