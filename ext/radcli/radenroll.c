@@ -250,6 +250,7 @@ static VALUE radenroll_delete (VALUE self) {
 void Init_AdEnroll()
 {
     c_adenroll = rb_define_class_under (m_adcli, "AdEnroll", rb_cObject);
+    c_adenroll_exception = rb_define_class_under (m_adcli, "Exception", rb_eStandardError);
 
     // Allocate functions
     rb_define_alloc_func (c_adenroll, radenroll_allocate);
