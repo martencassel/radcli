@@ -254,7 +254,7 @@ static VALUE radconn_connect (VALUE self) {
     result = adcli_conn_connect (ptr->conn);
 
     if (result != ADCLI_SUCCESS) {
-        rb_raise(rb_eRuntimeError, "%s", adcli_get_last_error());
+        rb_raise(c_adconn_exception, "%s", adcli_get_last_error());
     }
 
     return self;
@@ -263,6 +263,7 @@ static VALUE radconn_connect (VALUE self) {
 void Init_AdConn()
 {
     c_adconn = rb_define_class_under (m_adcli, "AdConn", rb_cObject);
+    c_adconn_exception = rb_define_class_under (m_adcli, "Exception", rb_eStandardError);
 
     // Allocate functions
     rb_define_alloc_func (c_adconn, radconn_allocate);
