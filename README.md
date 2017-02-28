@@ -64,6 +64,7 @@ res = adconn.connect
 
 enroll = Adcli::AdEnroll.new(adconn)
 enroll.set_computer_name("server")
+enroll.set_host_fqdn("server.example.com")
 enroll.set_computer_password("password")
 
 enroll.join()
