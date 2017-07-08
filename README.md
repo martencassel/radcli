@@ -98,6 +98,4 @@ For a testing environment you need the following:
 
 # Authors
 * Mårten Cassel
-
-# TODO
-* Write tests for connect, join, password and delete operations.  
+ 
