@@ -2,7 +2,7 @@ require 'rubygems'
 
 Gem::Specification.new do |spec|
     spec.name       = 'radcli'
-    spec.version    = '0.1.0'
+    spec.version    = '1.0.0'
     spec.authors    = ['Mårten Cassel']
     spec.license    = 'Artistic-2.0'
     spec.email      = ['marten.cassel@gmail.com']
