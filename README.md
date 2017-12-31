@@ -4,12 +4,29 @@ The radcli library provides a Ruby interface for performing actions on a Active 
 
 # Installation
 
+This library is available as a gem "radcli" through rubygems.org.
 
-### Prerequisites (Ubuntu)
+## Ubuntu 16.04
+```
+sudo apt-get install make gcc libkrb5-dev libldap2-dev libsasl2-dev
+sudo gem install radcli
+```
+
+# Building
+
+## Ubuntu 16.04 
+
 ```
 sudo apt-get install ruby gem ruby-dev
-sudo gem install rake bundler rakecompiler rspec
-sudo apt-get install automake autoconf xmlto xsltproc libkrb5-dev libldap2-dev libsasl2-dev
+sudo gem install rake bundler rake-compiler rspec
+sudo apt-get install make gcc automake autoconf xmlto xsltproc libkrb5-dev libldap2-dev libsasl2-dev
+
+git clone https://github.com/martencassel/radcli
+cd radcli
+
+rake build
+gem install pkg/radcli-1.0.0.gem
+
 ```
 
 ### Prerequisites (Fedora)
