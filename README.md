@@ -24,7 +24,7 @@ sudo yum install automake autoconf xmlto xsltproc krb5-devel openldap-devel cyru
 git clone https://github.com/martencassel/radcli
 cd radcli
 rake build
-gem install pkg/radcli-0.0.1.gem
+gem install pkg/radcli-1.0.0.gem
 ```
 
 # Synposis
