@@ -3,40 +3,26 @@ The radcli library provides a Ruby interface for performing actions on a Active 
 (adcli: https://www.freedesktop.org/software/realmd/adcli/devel-building.html)
 
 # Installation
-
-This library is available as a gem "radcli" through rubygems.org.
+This library is available as a gem.
 
 ## Ubuntu 16.04
 ```
-sudo apt-get install make gcc libkrb5-dev libldap2-dev libsasl2-dev
+sudo apt-get -y install make gcc libkrb5-dev libldap2-dev libsasl2-dev
 sudo gem install radcli
 ```
-
+## Redhat Linux 7.4
+``` 
+sudo yum -y install make gcc automake autoconf krb5-devel openldap-devel cyrus-sasl-devel
+sudo gem install radcli
+```
 # Building
 
 ## Ubuntu 16.04 
-
 ```
 sudo apt-get install ruby gem ruby-dev
 sudo gem install rake bundler rake-compiler rspec
 sudo apt-get install make gcc automake autoconf xmlto xsltproc libkrb5-dev libldap2-dev libsasl2-dev
-
-git clone https://github.com/martencassel/radcli
-cd radcli
-
-rake build
-gem install pkg/radcli-1.0.0.gem
-
 ```
-
-### Prerequisites (Fedora)
-```
-sudo yum ruby gem ruby-devel
-gem install rake bundler rakecompiler rspec
-sudo yum install automake autoconf xmlto xsltproc krb5-devel openldap-devel cyrus-sasl-devel
-```
-
-### Building
 ```
 git clone https://github.com/martencassel/radcli
 cd radcli
@@ -44,6 +30,20 @@ rake build
 gem install pkg/radcli-1.0.0.gem
 ```
 
+## Redhat Linux 7.4
+```
+sudo subscription-manager repos --enable rhel-7-server-optional-rpms
+sudo yum -y install ruby gem ruby-devel
+sudo gem install rake bundler rake-compiler rspec
+sudo yum -y install git make gcc automake autoconf krb5-devel openldap-devel cyrus-sasl-devel
+```
+```
+git clone https://github.com/martencassel/radcli
+cd radcli
+rake build
+gem install pkg/radcli-1.0.0.gem
+```
+  
 # Synposis
 
 ### Connect using username/password
