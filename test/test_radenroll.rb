@@ -68,7 +68,4 @@ class TC_AdEnroll < Test::Unit::TestCase
     assert_equal(@computer_password, computer_password)
   end
 
-  def teardown
-  end
-
 end

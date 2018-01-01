@@ -103,8 +103,5 @@ class TC_Adconn < Test::Unit::TestCase
     password = @conn.get_user_password()
     assert_equal(@user_password, password)
   end
-
-  def teardown
-  end
-
+ 
 end
