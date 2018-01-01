@@ -12,7 +12,7 @@ sudo gem install radcli
 ```
 ## Redhat Linux 7.4
 ``` 
-sudo yum -y install make gcc automake autoconf krb5-devel openldap-devel cyrus-sasl-devel
+sudo yum -y install make gcc automake autoconf krb5-devel openldap-devel cyrus-sasl-devel cyrus-sasl-gssapi
 sudo gem install radcli
 ```
 # Building
