@@ -34,7 +34,7 @@ gem install pkg/radcli-1.0.0.gem
 ```
 sudo subscription-manager repos --enable rhel-7-server-optional-rpms
 sudo yum -y install ruby gem ruby-devel
-sudo yum -y install git make gcc automake autoconf krb5-devel openldap-devel cyrus-sasl-devel
+sudo yum -y install git make gcc automake autoconf krb5-devel openldap-devel cyrus-sasl-devel cyrus-sasl-gssapi
 sudo gem install rake bundler rake-compiler rspec
 ```
 ```
