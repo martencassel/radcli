@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
     spec.authors    = ['Mårten Cassel']
     spec.license    = 'Artistic-2.0'
     spec.email      = ['marten.cassel@gmail.com']
-    spec.homepage   = 'http://github.com/martencassel/radcli'
+    spec.homepage   = 'https://github.com/martencassel/radcli'
     spec.summary    = 'A Ruby interface for the adcli library'
     spec.test_files = Dir['test/test*']
     spec.extensions = ['ext/radcli/extconf.rb']
