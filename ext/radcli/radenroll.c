@@ -201,6 +201,36 @@ static VALUE radenroll_join (VALUE self) {
 }
 
 /*
+ * call-seq:
+ *
+ * adenroll.update
+ *
+ * Updates a computer object
+ *
+ */
+static VALUE radenroll_update (VALUE self) {
+    RUBY_ADENROLL *ptr_enroll;
+    adcli_result result;
+    const char* c_computer_password = NULL;
+    adcli_enroll_flags flags = ADCLI_ENROLL_NO_KEYTAB;
+
+    Data_Get_Struct (self, RUBY_ADENROLL, ptr_enroll);
+
+    c_computer_password = adcli_enroll_get_computer_password (ptr_enroll->enroll);
+    if (c_computer_password != NULL) {
+      flags |= ADCLI_ENROLL_PASSWORD_VALID;
+    }
+
+    result = adcli_enroll_update (ptr_enroll->enroll, flags);
+
+    if(result != ADCLI_SUCCESS) {
+        rb_raise(rb_eRuntimeError, "%s", adcli_get_last_error());
+    }
+
+    return self;
+}
+
+/*
  * call-seq
  *
  * adenroll.password
@@ -270,6 +300,7 @@ void Init_AdEnroll()
     rb_define_method (c_adenroll, "set_computer_password", radenroll_set_computer_password, 1);
 
     rb_define_method (c_adenroll, "join", radenroll_join, 0);
+    rb_define_method (c_adenroll, "update", radenroll_update, 0);
     rb_define_method (c_adenroll, "password", radenroll_password, 0);
     rb_define_method (c_adenroll, "delete", radenroll_delete, 0);
 
