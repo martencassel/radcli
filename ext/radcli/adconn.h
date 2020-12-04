@@ -91,9 +91,14 @@ void                adcli_conn_set_domain_controller (adcli_conn *conn,
 
 const char *        adcli_conn_get_domain_short      (adcli_conn *conn);
 
+const char *        adcli_conn_get_domain_sid        (adcli_conn *conn);
+
 LDAP *              adcli_conn_get_ldap_connection   (adcli_conn *conn);
 
 krb5_context        adcli_conn_get_krb5_context      (adcli_conn *conn);
+
+void                adcli_conn_set_krb5_context      (adcli_conn *conn,
+                                                      krb5_context k5);
 
 const char *        adcli_conn_get_computer_name     (adcli_conn *conn);
 
@@ -143,5 +148,7 @@ void                adcli_conn_set_krb5_conf_dir     (adcli_conn *conn,
 
 int                 adcli_conn_server_has_capability (adcli_conn *conn,
                                                       const char *capability);
+
+bool                adcli_conn_is_writeable          (adcli_conn *conn);
 
 #endif /* ADCONN_H_ */
