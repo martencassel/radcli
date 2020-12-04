@@ -27,7 +27,7 @@ sudo apt-get install make gcc automake autoconf xmlto xsltproc libkrb5-dev libld
 git clone https://github.com/martencassel/radcli
 cd radcli
 rake build
-gem install pkg/radcli-1.0.0.gem
+gem install pkg/radcli-1.1.0.gem
 ```
 
 ## Redhat Linux 7.4
@@ -41,7 +41,7 @@ sudo gem install rake bundler rake-compiler rspec
 git clone https://github.com/martencassel/radcli
 cd radcli
 rake build
-gem install pkg/radcli-1.0.0.gem
+gem install pkg/radcli-1.1.0.gem
 ```
   
 # Synposis
