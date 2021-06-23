@@ -1,4 +1,6 @@
 # Description
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmartencassel%2Fradcli.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmartencassel%2Fradcli?ref=badge_shield)
+
 The radcli library provides a Ruby interface for performing actions on a Active Directory domain using the realmd/adcli tool.
 (adcli: https://www.freedesktop.org/software/realmd/adcli/devel-building.html)
 
@@ -124,3 +126,7 @@ For a testing environment you need the following:
 # Authors
 * Mårten Cassel
  
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmartencassel%2Fradcli.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmartencassel%2Fradcli?ref=badge_large)
