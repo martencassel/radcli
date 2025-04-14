@@ -1,0 +1,4 @@
+FROM fedora:latest
+COPY build-adcli.sh /bin/build-adcli.sh
+WORKDIR /buildroot
+RUN /bin/build-adcli.sh
